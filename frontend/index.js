@@ -36,9 +36,8 @@ function redraw() {
 }
 
 canvas.addEventListener("mousedown", function(e) {
-    var mouseX = e.pageX - this.offsetLeft;
-    var mouseY = e.pageY - this.offsetTop;
-
+    var mouseX = e.pageX - this.offsetLeft - this.offsetParent.offsetLeft;
+    var mouseY = e.pageY - this.offsetTop - this.offsetParent.offsetTop;
     drawing = true;
     addClick(mouseX, mouseY);
     redraw();
@@ -46,7 +45,9 @@ canvas.addEventListener("mousedown", function(e) {
 
 canvas.addEventListener("mousemove", function(e) {
     if (drawing) {
-        addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+        var mouseX = e.pageX - this.offsetLeft - this.offsetParent.offsetLeft;
+        var mouseY = e.pageY - this.offsetTop - this.offsetParent.offsetTop;
+        addClick(mouseX, mouseY);
         redraw();
     }
 });

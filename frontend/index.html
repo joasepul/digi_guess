@@ -5,11 +5,26 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">        
     </head>
     <body>
-        <canvas height="100px" width="100px">
+        <div id="navbar" class="container-fluid">
+            <h1 id="title">DigiGuess</h1>
+        </div>
 
-        </canvas>
-        <button id="clear-button">Clear</button>
-        <button id="submit-button">Submit</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm" id="input-column">
+                    <canvas height="100px" width="100px">
+                    </canvas>
+                    <button class="btn btn-sm btn-danger" id="clear-button">Clear</button>
+                    <button class="btn btn-sm btn-primary" id="submit-button">Submit</button>
+                </div>
+                <div class="col-sm" id="output-column">
+                    <h4>Your Number:</h4>
+                    <span id="output"></span>
+                </div>
+            </div>
+        </div>
+
+
         <script src="index.js"></script>
     </body>
 </html>
