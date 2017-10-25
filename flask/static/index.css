@@ -1,0 +1,38 @@
+canvas {
+    height: 100px;
+    width: 100px;
+    margin: 10px auto;
+    padding-left: 0;
+    padding-right: 0;
+    display: block;
+    border: 1px solid gray;
+}
+
+#input-column {
+    text-align: center;
+}
+
+#output-column {
+    text-align: center;
+}
+
+#navbar {
+    background-color: #e04166;
+    height: 100px;
+}
+
+#title{
+    text-align: center;
+    padding-top: 15;
+    padding-bottom: 15;
+    margin-bottom: 0;
+    color: white;
+}
+
+.row {
+    margin-top: 50px;
+}
+
+#output {
+    font-size: 3em;
+}
