@@ -67,8 +67,17 @@ document.querySelector('#clear-button').addEventListener("click", function(e) {
     clickDrag = [];
 });
 
+function simplifyArray(imageArr) {
+    var simpleArr = imageArr.filter(
+        (value, index) => (index + 1) % 4 == 0);
+    simpleArr = simpleArr.map(
+        value => value / 255);
+    return Array.from(simpleArr)
+
+}
+
 document.querySelector('#submit-button').addEventListener("click", function(e) {
     var imageData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
     console.log(imageData);
+    console.log(simplifyArray(imageData.data))
 });
-
