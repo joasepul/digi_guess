@@ -1,18 +1,24 @@
-#!/usr/bin/env python
 import flask
 import numpy as np
 import scipy.misc #requires pillow to be installed
                   #pip install pillow
 
 
+<<<<<<< Updated upstream
+from flask import request, send_from_directory
+from flask_socketio import SocketIO
+
+from sklearn.datasets import fetch_mldata
+# Create the application.
 from flask import request, send_from_directory
 from flask_socketio import SocketIO
 
 from sklearn.datasets import fetch_mldata
 from sklearn.linear_model import SGDClassifier
-import pickle
-sgd_clf = pickle.load(open("../ML_model/sgd_clf_trained_MNIST.pickle", "rb"))
-
+#import pickle
+#sgd_clf = pickle.load(open("../ML_model/sgd_clf_trained_MNIST.pickle", "rb"))
+from keras.models import load_model
+cnn_digit_clf = load_model("../ML_model/cnn_digit_clf.h5")
 
 # Create the application.
 app = flask.Flask(__name__, static_folder='./static')
@@ -32,7 +38,10 @@ def processImage(arrayDict):
     #Then for each digit found this the following will happen
     processedMatrix = scipy.misc.imresize(imageMatrix, (28,28))
     #Here is where we will call the model to predict.
-    predictedLabel = sgd_clf.predict(processedMatrix.reshape(1,-1))
+    processedMatrix = processedMatrix.reshape(1, 28, 28).astype('float32')
+    #Here is where we will call the model to predict.
+    #predictedLabel = sgd_clf.predict(processedMatrix.reshape(1,-1))
+    predictedLabel = cnn_digit_clf.predict_classes([[processedMatrix]])
     print("The model predicted: {}".format(predictedLabel))
 
     #We will return whatever label the model predicts, or the answer to
