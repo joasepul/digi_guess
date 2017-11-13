@@ -37,7 +37,7 @@ def processImage(arrayDict):
     #Then for each digit found this the following will happen
     processedMatrix = scipy.misc.imresize(imageMatrix, (28,28))
     #Here is where we will call the model to predict.
-    processedMatrix = processedMatrix.reshape(1, 28, 28).astype('float32')
+    processedMatrix = processedMatrix.reshape(1, 1, 28, 28).astype('float32')
     #Here is where we will call the model to predict.
     #predictedLabel = sgd_clf.predict(processedMatrix.reshape(1,-1))
     predictedLabel = cnn_digit_clf.predict_classes([processedMatrix])
@@ -46,7 +46,7 @@ def processImage(arrayDict):
     #We will return whatever label the model predicts, or the answer to
     #the arithmetic expression
 
-    print(str(processedMatrix))
+    #print(str(processedMatrix))
 
 @app.route('/')
 def index():
