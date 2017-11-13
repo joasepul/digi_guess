@@ -4,7 +4,6 @@ import scipy.misc #requires pillow to be installed
                   #pip install pillow
 
 
-<<<<<<< Updated upstream
 from flask import request, send_from_directory
 from flask_socketio import SocketIO
 
@@ -41,7 +40,7 @@ def processImage(arrayDict):
     processedMatrix = processedMatrix.reshape(1, 28, 28).astype('float32')
     #Here is where we will call the model to predict.
     #predictedLabel = sgd_clf.predict(processedMatrix.reshape(1,-1))
-    predictedLabel = cnn_digit_clf.predict_classes([[processedMatrix]])
+    predictedLabel = cnn_digit_clf.predict_classes([processedMatrix])
     print("The model predicted: {}".format(predictedLabel))
 
     #We will return whatever label the model predicts, or the answer to
