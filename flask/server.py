@@ -10,7 +10,7 @@ from flask_socketio import SocketIO
 from sklearn.datasets import fetch_mldata
 # Create the application.
 from flask import request, send_from_directory
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit
 
 from sklearn.datasets import fetch_mldata
 from sklearn.linear_model import SGDClassifier
@@ -24,8 +24,10 @@ app = flask.Flask(__name__, static_folder='./static')
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 #sockets
+
 @socketio.on('init')
 def success(msg):
+
     print(str(msg))
 
 @socketio.on('preproc')
@@ -42,7 +44,7 @@ def processImage(arrayDict):
     #predictedLabel = sgd_clf.predict(processedMatrix.reshape(1,-1))
     predictedLabel = cnn_digit_clf.predict_classes([processedMatrix])
     print("The model predicted: {}".format(predictedLabel))
-
+    emit('displayLabel', str(predictedLabel))
     #We will return whatever label the model predicts, or the answer to
     #the arithmetic expression
 

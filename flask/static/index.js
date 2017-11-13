@@ -1,8 +1,17 @@
 var io = require('socket.io-client');
 var socket = io.connect('http://127.0.0.1:5000');
-socket.on('connect', function() {
-    socket.emit('init', {data: 'I\'m connected!'});
+socket.on('connect', function(websocket) {
+    websocket.emit('init', {data: 'I\'m connected!'});
+    socket.on('displayLabel', function(label) {
+    console.log(label);
+
 });
+
+});
+
+
+
+
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext("2d");
 
@@ -83,5 +92,6 @@ function simplifyArray(imageArr) {
 
 document.querySelector('#submit-button').addEventListener("click", function(e) {
     var imageData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
-    socket.emit('preproc', {data: simplifyArray(imageData.data)});
+    var label = socket.emit('preproc', {data: simplifyArray(imageData.data)});
+    console.log(label)
 });
