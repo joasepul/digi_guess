@@ -18,35 +18,39 @@
   h2 {
       font-size: 24px;
       text-transform: uppercase;
-      color: #303030;
+      color: lightgray;
       font-weight: 600;
       margin-bottom: 30px;
   }
   h4 {
       font-size: 19px;
       line-height: 1.375em;
-      color: #303030;
+      color: lightgray;
       font-weight: 400;
       margin-bottom: 30px;
   }  
   .jumbotron {
-      background-color: #f4511e;
+      background-image: url("images/banner.jpg");
+      margin-bottom: 0px; 
       color: #fff;
-      padding: 100px 25px;
+      padding: 200px 25px;
       font-family: Montserrat, sans-serif;
   }
   .container-fluid {
-      padding: 60px 50px;
+      padding: 30px 50px;
+  }
+  .bg-black {
+      background-color: #0d203f; 
   }
   .bg-grey {
-      background-color: #f6f6f6;
+      background-color: #0a3068;
   }
   .logo-small {
       color: #f4511e;
       font-size: 50px;
   }
   .logo {
-      color: #f4511e;
+      color: hotpink;
       font-size: 200px;
   }
   .person {
@@ -57,7 +61,7 @@
       opacity: 0.7;
   }
   .person:hover {
-      border-color: #f1f1f1;
+      border-color: hotpink;
   }
   .thumbnail {
       padding: 0 0 15px 0;
@@ -68,17 +72,7 @@
       width: 100%;
       height: 100%;
       margin-bottom: 10px;
-  }
-  .carousel-control.right, .carousel-control.left {
-      background-image: none;
-      color: #f4511e;
-  }
-  .carousel-indicators li {
-      border-color: #f4511e;
-  }
-  .carousel-indicators li.active {
-      background-color: #f4511e;
-  }
+      }
   .item h4 {
       font-size: 19px;
       line-height: 1.375em;
@@ -103,7 +97,7 @@
       color: #f4511e;
   }
   .panel-heading {
-      color: #fff !important;
+      color: #fff!important;
       background-color: #f4511e !important;
       padding: 25px;
       border-bottom: 1px solid transparent;
@@ -113,7 +107,7 @@
       border-bottom-right-radius: 0px;
   }
   .panel-footer {
-      background-color: white !important;
+      background-color: black!important;
   }
   .panel-footer h3 {
       font-size: 32px;
@@ -129,7 +123,7 @@
   }
   .navbar {
       margin-bottom: 0;
-      background-color: #f4511e;
+      background-color: black;
       z-index: 9999;
       border: 0;
       font-size: 12px !important;
@@ -152,8 +146,11 @@
   footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;
-      color: #f4511e;
+      color: hotpink;
   }
+      footer {
+          background-image: url("images/banner.jpg");
+      }
   .slideanim {visibility:hidden;}
   .slide {
       animation-name: slide;
@@ -226,11 +223,11 @@
 </div>
 
 <!-- Container (About Section) -->
-<div id="about" class="container-fluid">
+<div id="about" class="container-fluid bg-black">
   <div class="row">
     <div class="col-sm-8">
-      <h2>About Company Page</h2><br>
-      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+      <h2>How did we do it?</h2><br>
+      <h4>Convolutional Neural Networks is the hot new thing for machine learning. With the mass reduction in error rates for image processing due to CNN’s, CNN’s have become a powerful tool in today’s world. Companies all around the world use CNN’s including Google and even Instagram! But what are they? Here we will briefly explain what they are using it’s most known and popular use case, image processing. Specifically how we used image processing to solve our digit recognition problem.  </h4><br>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <br>
     </div>
@@ -255,7 +252,7 @@
 </div>
 
 <!-- Container (The Band Section) -->
-<div id="band" class="container text-center">
+<div id="band" class="container-fluid bg-black text-center">
   <h3>THE BAND</h3>
   <p><em>We love DIGI NETTING!</em></p>
   <p>We have created a website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
