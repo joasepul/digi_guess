@@ -22,6 +22,7 @@ numpy.random.seed(seed)
 
 
 # reshape to be [samples][pixels][width][height]
+num_pixels = X_train.shape[1] * X_train.shape[2]
 X_train = X_train.reshape(X_train.shape[0], 1, 28, 28).astype('float32')
 X_test = X_test.reshape(X_test.shape[0], 1, 28, 28).astype('float32')
 
@@ -53,10 +54,24 @@ def larger_model():
     return model
 
 
+def save_model(model, filename):
+    model.save(filename)
+
+
 # build the model
 model = larger_model()
 # fit the model
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, batch_size=200)
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, batch_size=100)
+# create model for single item
+weights = model.get_weights()
+single_model = larger_model()
+
+single_model.set_weights(weights)
+single_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+# fit the new model
+single_model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=1, batch_size=1)
+# save the model to h5
+save_model(single_model, "cnn_digit_clf.h5")
 # Final evaluation of the model
-scores = model.evaluate(X_test, y_test, verbose=0)
+scores = single_model.evaluate(X_test, y_test, verbose=0)
 print("Large CNN Error: %.2f%%" % (100-scores[1]*100))
