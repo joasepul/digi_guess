@@ -3381,8 +3381,9 @@ var drawingCanvas = new _drawingCanvas2.default(canvas);
 
 document.querySelector('#submit-button').addEventListener("click", function (e) {
     var imageData = drawingCanvas.data();
+    console.log(imageData);
     console.log(simplifyArray(imageData));
-    // socket.emit('preproc', {data: simplifyArray(imageData.data)});
+    socket.emit('preproc', { data: simplifyArray(imageData.data) });
 });
 
 document.querySelector('#clear-button').addEventListener("click", function (e) {

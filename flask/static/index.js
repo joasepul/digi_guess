@@ -19,7 +19,7 @@ const drawingCanvas = new DrawingCanvas(canvas);
 
 document.querySelector('#submit-button').addEventListener("click", function(e) {
     var imageData = drawingCanvas.data();
-    console.log(simplifyArray(imageData));
+    console.log(simplifyArray(imageData.data));
     socket.emit('preproc', {data: simplifyArray(imageData.data)});
 });
 
