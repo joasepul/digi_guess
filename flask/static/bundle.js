@@ -3411,8 +3411,8 @@ function DrawingCanvas(element, options) {
     this.ctx = element.getContext('2d');
     this.opts = options || {};
     this.signaturePad = new _signature_pad2.default(element, {
-        minWidth: 3,
-        maxWidth: 3,
+        minWidth: 1,
+        maxWidth: 1,
         minDistance: 2
     });
 }
