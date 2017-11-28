@@ -19,12 +19,12 @@ function simplifyArray(imageArr) {
 const drawingCanvas = new DrawingCanvas(canvas);
 
 document.querySelector('#submit-button').addEventListener("click", function(e) {
-    var imageData = drawingCanvas.data();
-    console.log(simplifyArray(imageData.data));
+    var imageData = simplifyArray(drawingCanvas.data());
+    console.log(imageData);
     $.ajax({
         url: '/get_digit',
         type: 'POST',
-        data: JSON.stringify(imageData.data),
+        data: JSON.stringify(imageData),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(data) {

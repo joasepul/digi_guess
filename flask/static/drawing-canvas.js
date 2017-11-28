@@ -17,7 +17,7 @@ DrawingCanvas.prototype.clear = function () {
 }
 
 DrawingCanvas.prototype.data = function () {
-    return this.ctx.getImageData(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    return this.ctx.getImageData(0, 0, this.ctx.canvas.width, this.ctx.canvas.height).data;
 }
 
 export default DrawingCanvas;

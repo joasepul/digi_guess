@@ -101,12 +101,12 @@ function simplifyArray(imageArr) {
 var drawingCanvas = new _drawingCanvas2.default(canvas);
 
 document.querySelector('#submit-button').addEventListener("click", function (e) {
-    var imageData = drawingCanvas.data();
-    console.log(simplifyArray(imageData.data));
+    var imageData = simplifyArray(drawingCanvas.data());
+    console.log(imageData);
     _jquery2.default.ajax({
         url: '/get_digit',
         type: 'POST',
-        data: JSON.stringify(imageData.data),
+        data: JSON.stringify(imageData),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function success(data) {
@@ -158,7 +158,7 @@ DrawingCanvas.prototype.clear = function () {
 };
 
 DrawingCanvas.prototype.data = function () {
-    return this.ctx.getImageData(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    return this.ctx.getImageData(0, 0, this.ctx.canvas.width, this.ctx.canvas.height).data;
 };
 
 exports.default = DrawingCanvas;
