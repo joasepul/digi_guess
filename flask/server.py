@@ -31,7 +31,7 @@ def processImage():
     #CV algorithm will be called here to seperate digits
 
     #Then for each digit found this the following will happen
-    # processedMatrix = scipy.misc.imresize(imageMatrix, (28,28))
+    processedMatrix = scipy.misc.imresize(imageMatrix, (28,28))
     #Here is where we will call the model to predict.
     processedMatrix = processedMatrix.reshape(1, 1, 28, 28).astype('float32')
     #Here is where we will call the model to predict.
