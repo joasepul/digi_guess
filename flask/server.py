@@ -5,46 +5,50 @@ import scipy.misc #requires pillow to be installed
 
 
 from flask import request, send_from_directory
-from flask_socketio import SocketIO
+# from flask_socketio import SocketIO
 
-from sklearn.datasets import fetch_mldata
+# from sklearn.datasets import fetch_mldata
 # Create the application.
 from flask import request, send_from_directory
-from flask_socketio import SocketIO, emit
+# from flask_socketio import SocketIO, emit
 
-from sklearn.datasets import fetch_mldata
-from sklearn.linear_model import SGDClassifier
+# from sklearn.datasets import fetch_mldata
+# from sklearn.linear_model import SGDClassifier
 #import pickle
 #sgd_clf = pickle.load(open("../ML_model/sgd_clf_trained_MNIST.pickle", "rb"))
-from keras.models import load_model
-cnn_digit_clf = load_model("../ML_model/cnn_digit_clf.h5")
+# from keras.models import load_model
+# cnn_digit_clf = load_model("../ML_model/cnn_digit_clf.h5")
 
 # Create the application.
 app = flask.Flask(__name__, static_folder='./static')
 app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app)
+# socketio = SocketIO(app)
 #sockets
 
-@socketio.on('init')
-def success(msg):
+# @socketio.on('init')
+# def success(msg):
 
-    print(str(msg))
+#     print(str(msg))
 
-@socketio.on('preproc')
-def processImage(arrayDict):
-    got = arrayDict['data']
-    imageMatrix = np.array(got, dtype=np.uint8).reshape((100,100))
+# @socketio.on('preproc')
+@app.route('/get_digit', methods=['POST'])
+def processImage():
+    print('recieved request')
+    print(request.data)
+    return str(4)
+    # got = arrayDict['data']
+    # imageMatrix = np.array(got, dtype=np.uint8).reshape((100,100))
     #CV algorithm will be called here to seperate digits
 
     #Then for each digit found this the following will happen
-    processedMatrix = scipy.misc.imresize(imageMatrix, (28,28))
+    # processedMatrix = scipy.misc.imresize(imageMatrix, (28,28))
     #Here is where we will call the model to predict.
-    processedMatrix = processedMatrix.reshape(1, 1, 28, 28).astype('float32')
+    # processedMatrix = processedMatrix.reshape(1, 1, 28, 28).astype('float32')
     #Here is where we will call the model to predict.
     #predictedLabel = sgd_clf.predict(processedMatrix.reshape(1,-1))
-    predictedLabel = cnn_digit_clf.predict_classes([processedMatrix])
-    print("The model predicted: {}".format(predictedLabel))
-    emit('displayLabel', str(predictedLabel))
+    # predictedLabel = cnn_digit_clf.predict_classes([processedMatrix])
+    # print("The model predicted: {}".format(predictedLabel))
+    # emit('displayLabel', str(predictedLabel))
     #We will return whatever label the model predicts, or the answer to
     #the arithmetic expression
 
@@ -80,4 +84,4 @@ def first():
 
 if __name__ == '__main__':
     app.debug=True
-    socketio.run(app)
+    # socketio.run(app)
