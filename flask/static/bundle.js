@@ -92,9 +92,14 @@ function simplifyArray(imageArr) {
     var simpleArr = imageArr.filter(function (value, index) {
         return (index + 1) % 4 == 0;
     });
-    //Not normalizing values yields better results
-    //simpleArr = simpleArr.map(
-    //  value => value / 255);
+    //Not normalizing values j
+    simpleArr = simpleArr.map(function (value) {
+        if (value > 150) {
+            return 255;
+        } else {
+            return 0;
+        }
+    });
     return Array.from(simpleArr);
 }
 
@@ -147,9 +152,11 @@ function DrawingCanvas(element, options) {
     this.ctx = element.getContext('2d');
     this.opts = options || {};
     this.signaturePad = new _signature_pad2.default(element, {
+        dotSize: 1,
         minWidth: 2,
         maxWidth: 2,
-        minDistance: 5
+        minDistance: 1
+
     });
 }
 
