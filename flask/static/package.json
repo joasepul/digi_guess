@@ -20,6 +20,7 @@
     "webpack": "^3.8.1"
   },
   "dependencies": {
-    "socket.io-client": "^2.0.4"
+    "jquery": "^3.2.1",
+    "signature_pad": "^2.3.2"
   }
 }
