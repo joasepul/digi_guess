@@ -227,8 +227,8 @@
   <div class="row">
     <div class="col-sm-8">
       <h2>How did we do it?</h2><br>
-      <h4>Convolutional Neural Networks is the hot new thing for machine learning. With the mass reduction in error rates for image processing due to CNN’s, CNN’s have become a powerful tool in today’s world. Companies all around the world use CNN’s including Google and even Instagram! But what are they? Here we will briefly explain what they are using it’s most known and popular use case, image processing. Specifically how we used image processing to solve our digit recognition problem.  </h4><br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h4>Convolutional Neural Networks is the hot new thing for machine learning. With the mass reduction in error rates for image processing due to CNN’s, CNN’s have become a powerful tool in today’s world. Companies all around the world use CNN’s including Google and even Instagram! But what are they? </h4><br>
+      <p>Here we will briefly explain what they are using it’s most known and popular use case, image processing. Specifically how we used image processing to solve our digit recognition problem. This area will be for going into the more specifics of everything while the white font will be a broad overview. </p>
       <br>
     </div>
     <div class="col-sm-4">
@@ -243,10 +243,23 @@
       <span class="glyphicon glyphicon-globe logo slideanim"></span>
     </div>
     <div class="col-sm-8">
-      <h2>Our Ways</h2><br>
-      <h4><strong>Convolutional Neural Nets:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-      <p><strong>In Depth:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h2>Image to Machine</h2><br>
+      <h4><strong>Convolutional Neural Nets:</strong> The first step was to set up the images so the NN could be able to read them. This is done by taking the Image and representing it as a matrix of values. In our case we took the image and created a matrix of it's pixel values. </h4><br>
+      <p><strong>In Depth:</strong> Since the computer cannot read in an image like we do images need to represented with pixel values. This is done by data preprocessing on the images to make sure the CNN is able to read the picture.</p>
+    </div>
+  </div>
+</div>
+    
+<div id="about" class="container-fluid bg-black">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>First Layer</h2><br>
+      <h4>The first layer of the CNN is always a Convolutional Layer. This layer acts like a flashlight that is shining over a region in the image. Then imagine the flahslight sliding across all the areas of the input image. In each are the flashlight shines over it takes a look to see if specific features are present in the area. In the end you end up with a matrix that states whether certain regions have a specific feature that a number is looking for. </h4><br>
+      <p><strong>In depth:</strong>The flashlight is called a filter and the part it is shining over is called the receptive field. The filters are called feature identifiers. Everytime the flashlight shines over a region it is multiplying the values in the filter by the original pixel values of the image. The weight of the filter is determined by what it's trying to look for, it is acting like a feature identifier. The multiplications are all summed up so at the end you have a unique number for the filter. This is then put into something called an activation map.</p>
+      <br>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-signal logo"></span>
     </div>
   </div>
 </div>
