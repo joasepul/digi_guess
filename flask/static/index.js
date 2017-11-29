@@ -11,8 +11,9 @@ var canvas = document.querySelector('canvas');
 function simplifyArray(imageArr) {
     var simpleArr = imageArr.filter(
         (value, index) => (index + 1) % 4 == 0);
-    simpleArr = simpleArr.map(
-        value => value / 255);
+    //Not normalizing values yields better results
+    //simpleArr = simpleArr.map(
+      //  value => value / 255);
     return Array.from(simpleArr)
 }
 
