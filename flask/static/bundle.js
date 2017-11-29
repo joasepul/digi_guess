@@ -112,6 +112,7 @@ document.querySelector('#submit-button').addEventListener("click", function (e) 
         success: function success(data) {
             console.log('success');
             console.log(data);
+            document.getElementById('output').innerText = data[0];
         },
         error: function error() {
             console.log('ajax request failed');

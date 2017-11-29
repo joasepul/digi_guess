@@ -16,6 +16,7 @@ function simplifyArray(imageArr) {
     return Array.from(simpleArr)
 }
 
+
 const drawingCanvas = new DrawingCanvas(canvas);
 
 document.querySelector('#submit-button').addEventListener("click", function(e) {
@@ -30,6 +31,7 @@ document.querySelector('#submit-button').addEventListener("click", function(e) {
         success: function(data) {
             console.log('success');
             console.log(data);
+            document.getElementById('output').innerText = data[0]
         },
         error: function() {
             console.log('ajax request failed');
