@@ -1,22 +1,9 @@
+from preproc import processMatrix
+from model import predict
 import flask
-import numpy as np
 import json
-import scipy.misc #requires pillow to be installed
-                  #pip install pillow
-
-
 from flask import request, send_from_directory
 
-from sklearn.datasets import fetch_mldata
-# Create the application.
-from flask import request, send_from_directory
-
-from sklearn.datasets import fetch_mldata
-from sklearn.linear_model import SGDClassifier
-#import pickle
-#sgd_clf = pickle.load(open("../ML_model/sgd_clf_trained_MNIST.pickle", "rb"))
-from keras.models import load_model
-cnn_digit_clf = load_model("../ML_model/cnn_digit_clf.h5")
 
 # Create the application.
 app = flask.Flask(__name__, static_folder='./static')
@@ -24,20 +11,13 @@ app.config['SECRET_KEY'] = 'secret!'
 
 # @socketio.on('preproc')
 @app.route('/get_digit', methods=['POST'])
-def processImage():
+def process_and_predict():
     print('recieved request')
     got = json.loads(request.data)
-    imageMatrix = np.array(got, dtype=np.uint8).reshape((100,100))
-    #CV algorithm will be called here to seperate digits
-
-    #Then for each digit found this the following will happen
-    processedMatrix = scipy.misc.imresize(imageMatrix, (28,28), interp='nearest')
-    print(processedMatrix)
-    #Here is where we will call the model to predict.
-    processedMatrix = processedMatrix.reshape(1, 1, 28, 28).astype('float32')
+    processedMatrix = processMatrix(got)
     #Here is where we will call the model to predict.
     #predictedLabel = sgd_clf.predict(processedMatrix.reshape(1,-1))
-    predictedLabel = cnn_digit_clf.predict_classes([processedMatrix])
+    predictedLabel = predict(processedMatrix)
     print("The model predicted: {}".format(predictedLabel))
     return str(predictedLabel)
     #We will return whatever label the model predicts, or the answer to
