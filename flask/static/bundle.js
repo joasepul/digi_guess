@@ -78,35 +78,15 @@ var _jquery = __webpack_require__(3);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _preprocess = __webpack_require__(5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// var socket = io.connect('http://127.0.0.1:5000');
-// socket.on('connect', function() {
-//     socket.emit('init', {data: 'I\'m connected!'});
-// });
-
-// var io = require('socket.io-client');
 var canvas = document.querySelector('canvas');
-
-function simplifyArray(imageArr) {
-    var simpleArr = imageArr.filter(function (value, index) {
-        return (index + 1) % 4 == 0;
-    });
-    //Not normalizing values j
-    simpleArr = simpleArr.map(function (value) {
-        if (value > 150) {
-            return 255;
-        } else {
-            return 0;
-        }
-    });
-    return Array.from(simpleArr);
-}
-
 var drawingCanvas = new _drawingCanvas2.default(canvas);
 
 document.querySelector('#submit-button').addEventListener("click", function (e) {
-    var imageData = simplifyArray(drawingCanvas.data());
+    var imageData = (0, _preprocess.simplifyArray)(drawingCanvas.data());
     console.log(imageData);
     _jquery2.default.ajax({
         url: '/get_digit',
@@ -123,7 +103,6 @@ document.querySelector('#submit-button').addEventListener("click", function (e) 
             console.log('ajax request failed');
         }
     });
-    // socket.emit('preproc', {data: simplifyArray(imageData.data)});
 });
 
 document.querySelector('#clear-button').addEventListener("click", function (e) {
@@ -10646,6 +10625,31 @@ module.exports = function (module) {
 	}
 	return module;
 };
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.simplifyArray = simplifyArray;
+function simplifyArray(imageArr) {
+    var simpleArr = imageArr.filter(function (value, index) {
+        return (index + 1) % 4 == 0;
+    });
+    simpleArr = simpleArr.map(function (value) {
+        if (value > 150) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    return Array.from(simpleArr);
+}
 
 /***/ })
 /******/ ]);
