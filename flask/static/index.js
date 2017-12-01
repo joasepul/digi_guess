@@ -1,23 +1,8 @@
 import DrawingCanvas from './drawing-canvas';
 import $ from 'jquery';
+import {simplifyArray} from './preprocess';
 
 var canvas = document.querySelector('canvas');
-
-function simplifyArray(imageArr) {
-    var simpleArr = imageArr.filter(
-        (value, index) => (index + 1) % 4 == 0);
-     simpleArr = simpleArr.map(
-         value => {
-             if(value > 150){
-                 return 1;
-             }else{
-                 return 0;
-             }
-
-         });
-    return Array.from(simpleArr)
-}
-
 const drawingCanvas = new DrawingCanvas(canvas);
 
 document.querySelector('#submit-button').addEventListener("click", function(e) {
