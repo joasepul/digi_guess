@@ -11,18 +11,18 @@
     <title>Creative - Start Bootstrap Theme</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="../static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/creative.min.css" rel="stylesheet">
+    <link href="../static/creative.min.css" rel="stylesheet">
 
   </head>
 
@@ -58,8 +58,8 @@
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-           <!-- <p class="text-faded mb-5">Recognizes handwritten digits and performs arithmetic</p> -->
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#begin">Click Here to Begin</a>
+        <p class="text-faded mb-5">An application that recognizes handwritten digits and performs arithmetic.</p>
+           <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="#begin">Click Here to Begin</a> -->
           </div>
         </div>
       </div>
@@ -69,10 +69,14 @@
     
     <section id="begin">
     <div class="container">
-    <div class="row">
+    <!--<div class="col-lg-100 mx-auto">
+    <p class="text-black text-center <strong>mb-5">HANDWRITTEN DIGIT RECOGNIZER</strong></p>
+    </div>
+    <height="80px" width="1200px"> -->
     <div class="col-lg-12 text-center text-strong">
-    <h2 class="section-heading">DIGIGUESS</h2>
+    <h2 class="block">Handwritten Digit Recognition</h2>
     <hr class="my-4">
+    <div class="row">
     <div class="container">
     <div class="row">
     <div class="col-lg-3 col-md-6 text-center">
@@ -98,7 +102,7 @@
     </div>
     <div class="col-lg-3 col-md-6 text-center">
     <div class="service-box mt-5 mx-auto">
-    <i class="fa fa-4x fa-check text-primary mb-3 sr-icons"></i>
+    <i class="fa fa-4x fa-thumbs-up text-primary mb-3 sr-icons"></i>
     <h3 class="mb-3">Digiguess Outputs Result</h3>
     <!-- <p class="text-muted mb-0">You have to make your websites with love these days!</p> -->
     </div>
@@ -106,6 +110,7 @@
     </div>
     </div>
     </section>
+   
     
 
     <section class="bg-primary" id="canvas">
@@ -114,7 +119,7 @@
           <div class="col-lg-8 mx-auto text-center">
           <div class="col-sm" id="output-column">
             <h2 class="section-heading text-white">Enter Digit</h2>
-            <span id="output"></span>
+            <span id="output"></spa11n>
             <div class="col-sm" id="input-column">
             <canvas height="100px" width="100px">
             </canvas>
@@ -128,20 +133,9 @@
         </div>
       </div>
     </section>
+    
 
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/creative.js"></script>
-    <script src="bundle.js"></script>
+    <script src="../static/bundle.js"></script>
     
 
   </body>
