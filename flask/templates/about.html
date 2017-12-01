@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Theme Company Page</title>
+  <title>Digi_Guess</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
   body {
-      font: 400 15px Lato, sans-serif;
+      font-family:Merriweather,'Helvetica Neue',Arial,sans-serif;
       line-height: 1.8;
       color: #818181;
   }
@@ -28,10 +28,10 @@
       color: lightgray;
       font-weight: 400;
       margin-bottom: 30px;
-  }  
+  }
   .jumbotron {
-      background-image: url("img/banner.jpg");
-      margin-bottom: 0px; 
+      background-image: url("../static/images/banner.jpg");
+      margin-bottom: 0px;
       color: #fff;
       padding: 200px 25px;
       font-family: Montserrat, sans-serif;
@@ -40,7 +40,7 @@
       padding: 30px 50px;
   }
   .bg-black {
-      background-color: #0d203f; 
+      background-color: #0d203f;
   }
   .bg-grey {
       background-color: #0a3068;
@@ -63,6 +63,14 @@
   .person:hover {
       border-color: hotpink;
   }
+  .picture {
+      border: 10px solid hotpink;
+      margin-top: 75px;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.8;
+      }
   .thumbnail {
       padding: 0 0 15px 0;
       border: none;
@@ -84,7 +92,7 @@
       font-style: normal;
   }
   .panel {
-      border: 1px solid #f4511e; 
+      border: 1px solid #f4511e;
       border-radius:0 !important;
       transition: box-shadow 0.5s;
   }
@@ -149,7 +157,7 @@
       color: hotpink;
   }
       footer {
-          background-image: url("img/banner.jpg");
+          background-image: url("../static/../static/images/banner.jpg");
       }
   .slideanim {visibility:hidden;}
   .slide {
@@ -163,7 +171,7 @@
     0% {
       opacity: 0;
       transform: translateY(70%);
-    } 
+    }
     100% {
       opacity: 1;
       transform: translateY(0%);
@@ -173,7 +181,7 @@
     0% {
       opacity: 0;
       -webkit-transform: translateY(70%);
-    } 
+    }
     100% {
       opacity: 1;
       -webkit-transform: translateY(0%);
@@ -204,7 +212,7 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#myPage">DigiGuess</a>
     </div>
@@ -218,8 +226,8 @@
 </nav>
 
 <div class="jumbotron text-center">
-  <h1>DigiGuess</h1> 
-  <p>We specialize in blablabla</p> 
+  <h1>DigiGuess</h1>
+  <p>We specialize in SCRUM</p>
 </div>
 
 <!-- Container (About Section) -->
@@ -227,12 +235,41 @@
   <div class="row">
     <div class="col-sm-8">
       <h2>How did we do it?</h2><br>
-      <h4>Convolutional Neural Networks is the hot new thing for machine learning. With the mass reduction in error rates for image processing due to CNN’s, CNN’s have become a powerful tool in today’s world. Companies all around the world use CNN’s including Google and even Instagram! But what are they? Here we will briefly explain what they are using it’s most known and popular use case, image processing. Specifically how we used image processing to solve our digit recognition problem.  </h4><br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h4>Convolutional Neural Networks is the hot new thing for machine learning. With the mass reduction in error rates for image processing due to CNN’s, CNN’s have become a powerful tool in today’s world. Companies all around the world use CNN’s including Google and even Instagram! But what are they? </h4><br>
+      <p>Here we will briefly explain what they are using it’s most known and popular use case, image processing. Specifically how we used image processing to solve our digit recognition problem. This area will be for going into the more specifics of everything while the white font will be a broad overview.
+        </p>
       <br>
     </div>
     <div class="col-sm-4">
-      <span class="glyphicon glyphicon-signal logo"></span>
+      <img src="../static/images/conv_all.png" class = "picture" width="255" height="255">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+
+    <div class="col-sm-4">
+      <img src="../static/images/jelly.jpg" class = "picture" width="255" height="255">
+    </div>
+    <div class="col-sm-8">
+      <h2>Image to Machine</h2><br>
+      <h4><strong>Convolutional Neural Nets:</strong> The first step was to set up the ../static/images so the NN could be able to read them. This is done by taking the Image and representing it as a matrix of values. In our case we took the image and created a matrix of it's pixel values. </h4><br>
+      <p><strong>In Depth:</strong> Since the computer cannot read in an image like we do ../static/images need to represented with pixel values. This is done by data preprocessing on the ../static/images to make sure the CNN is able to read the picture.</p>
+    </div>
+  </div>
+</div>
+
+<div id="about" class="container-fluid bg-black">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>First Layer</h2><br>
+      <h4>The first layer of the CNN is always a<strong>Convolutional Layer.</strong>  This layer acts like a flashlight that is shining over a region in the image. Then imagine the flahslight sliding across all the areas of the input image. In each are the flashlight shines over it takes a look to see if specific low level features are present in the area. In the end you end up with a matrix that states whether certain regions have a specific feature that a number is looking for. </h4><br>
+      <p><strong>In depth:</strong>The flashlight is called a filter and the part it is shining over is called the receptive field. The filters are called feature identifiers. Everytime the flashlight shines over a region it is multiplying the values in the filter by the original pixel values of the image. The weight of the filter is determined by what it's trying to look for, it is acting like a feature identifier. The multiplications are all summed up so at the end you have a unique number for the filter. This is then put into something called an activation map.</p>
+      <br>
+    </div>
+    <div class="col-sm-4">
+      <img src="../static/images/Flashlight.png" class = "picture" width="500" height="255">
     </div>
   </div>
 </div>
@@ -240,13 +277,39 @@
 <div class="container-fluid bg-grey">
   <div class="row">
     <div class="col-sm-4">
-      <span class="glyphicon glyphicon-globe logo slideanim"></span>
+      <img src="../static/images/Filter.png" class = "picture" width="500" height="255">
     </div>
     <div class="col-sm-8">
-      <h2>Our Ways</h2><br>
-      <h4><strong>Convolutional Neural Nets:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-      <p><strong>In Depth:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <h2>The In Between</h2><br>
+      <h4>Looking back at the Convolutional Layer we know that it is used for detecting low level features. But we need something that can detect high level features! So if we create more and more Convolutional Layers we can get higher and higher features. </h4><br>
+      <p><strong>In Depth:</strong>This is a tricky concept to grasp. When we go through another conv(Convolutional) layer the input is the activation map from the previous layer and so the flashlight is shining over a set of lower features trying to find a a feature from all the lower level features.</p>
+    </div>
+  </div>
+</div>
+
+<div id="about" class="container-fluid bg-black">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Fully Connected Layer</h2><br>
+      <h4>Now that we detected high level features we need something to make sense of them. This is where the Fully Connected Layer comes in. The fully connected layer is in charge of "choosing the right answer". It does this by giving a probability to each different possible outcome. For our project it was the digits 0 thru 9. </h4><br>
+      <p><strong>In depth:</strong>t gets all the information from all the previous layer and outputs a N dimensional vector with N being how many classes it can choose from, in our case it would be the numbers 0 thru 9. With each spot in the vector being the probability it is that class. </p>
+      <br>
+    </div>
+    <div class="col-sm-4">
+      <img src="../static/images/conn_layer.png" class = "picture" width="500" height="255">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="../static/images/nn_costs.png" class = "picture" width="500" height="255">
+    </div>
+    <div class="col-sm-8">
+      <h2>Training the darn thing</h2><br>
+      <h4>Remember me talking about filters? Remember how I mulitplied the original matrix by the filter. Well the filter gets changed. During training phase all the filter values are changed to minimize the error.</h4><br>
+      <p><strong>In Depth: The filter values getting changed is called backpropagation. During then a error (loss) value is calculated by an algorithm, the most popular being mean squared error. After many repititions of changed the filter values to minimize loss the CNN converges and results with optimized filter values.</strong></p>
     </div>
   </div>
 </div>
@@ -255,136 +318,74 @@
 <div id="band" class="container-fluid bg-black text-center">
   <h3>THE BAND</h3>
   <p><em>We love DIGI NETTING!</em></p>
-  <p>We have created a website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p></p>
   <br>
   <div class="row">
     <div class="col-sm-4">
       <p class="text-center"><strong>Madeline Hawkins</strong></p><br>
       <a href="#demo" data-toggle="collapse">
-        <img src="http://placehold.it/200x200" class="img-circle person" alt="Random Name" width="255" height="255">
+        <img src="../static/images/Madeline.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
       <div id="demo" class="collapse">
-        <p>Project Manager</p>
-        <p>Senior Computer Science</p>
-        <p>Coffee</p>
+        <p>Product Owner</p>
+        <p>Computer Science Undergraduate</p>
+        <p>Be curious.</p>
       </div>
     </div>
+
     <div class="col-sm-4">
       <p class="text-center"><strong>Harland Duman</strong></p><br>
       <a href="#demo2" data-toggle="collapse">
-        <img src="http://placehold.it/200x200" class="img-circle person" alt="Random Name" width="255" height="255">
+        <img src="../static/images/Harland.JPG" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
       <div id="demo2" class="collapse">
-        <p>Drummer</p>
-        <p>Loves drummin'</p>
-        <p>Member since 1988</p>
+        <p>Team Member</p>
+        <p>Computer Science Undergraduate</p>
+        <p>When you're up to your neck in alligators, it's hard to remember that your initial objective was to drain the swamp</p>
       </div>
     </div>
     <div class="col-sm-4">
       <p class="text-center"><strong>Jose</strong></p><br>
       <a href="#demo3" data-toggle="collapse">
-        <img src="http://placehold.it/200x200" class="img-circle person" alt="Random Name" width="255" height="255">
+        <img src="../static/images/Jose.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
       <div id="demo3" class="collapse">
-        <p>Bass player</p>
-        <p>Loves math</p>
-        <p>Member since 2005</p>
+        <p>Mad Data Scientist</p>
+        <p>Computer Science Undergraduate</p>
+        <p>It's not a bug, it's a feature</p>
       </div>
     </div>
+ </div>
+ <div class="row">
        <div class="col-sm-4">
       <p class="text-center"><strong>Megan</strong></p><br>
-      <a href="#demo3" data-toggle="collapse">
-        <img src="http://placehold.it/200x200" class="img-circle person" alt="Random Name" width="255" height="255">
+      <a href="#demo4" data-toggle="collapse">
+        <img src="../static/images/Megan3.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
-      <div id="demo3" class="collapse">
-        <p>Bass player</p>
-        <p>Loves math</p>
-        <p>Member since 2005</p>
+      <div id="demo4" class="collapse">
+        <p>Model Creator</p>
+        <p>Computer Science Undergraduate</p>
+        <p>IT'S ALIVE!</p>
       </div>
     </div>
        <div class="col-sm-4">
       <p class="text-center"><strong>Shobikha</strong></p><br>
-      <a href="#demo3" data-toggle="collapse">
-        <img src="http://placehold.it/200x200" class="img-circle person" alt="Random Name" width="255" height="255">
+      <a href="#demo5" data-toggle="collapse">
+        <img src="../static/images/Shobi.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
       </a>
-      <div id="demo3" class="collapse">
-        <p>Bass player</p>
-        <p>Loves math</p>
-        <p>Member since 2005</p>
+      <div id="demo5" class="collapse">
+        <p>Front End Developer</p>
+        <p>Computer Science Undergraduate</p>
+        <p>If at first you don't succeed;call it version 1.0</p>
       </div>
     </div>
-  </div>
-</div>
-    
-<!-- Container (Contact Section) -->
-<div id="contact" class="container-fluid bg-grey">
-  <h2 class="text-center">CONTACT</h2>
-  <div class="row">
-    <div class="col-sm-5">
-      <p>Contact us and we'll get back to you within NEVER!</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Santa Cruz, CA</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
-    </div>
-    <div class="col-sm-7 slideanim">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Send</button>
-        </div>
-      </div>
-    </div>
-  </div>
+ </div>
 </div>
 
 <footer class="container-fluid text-center">
   <a href="#myPage" title="To Top">
       <span class="glyphicon glyphicon-chevron-up"></span> </a>
 </footer>
-
-<script>
-$(document).ready(function(){
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-  
-  $(window).scroll(function() {
-    $(".slideanim").each(function(){
-      var pos = $(this).offset().top;
-
-      var winTop = $(window).scrollTop();
-        if (pos < winTop + 600) {
-          $(this).addClass("slide");
-        }
-    });
-  });
-})
-</script>
 
 </body>
 </html>
