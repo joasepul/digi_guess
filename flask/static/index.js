@@ -1,10 +1,5 @@
-// var io = require('socket.io-client');
 import DrawingCanvas from './drawing-canvas';
 import $ from 'jquery';
-// var socket = io.connect('http://127.0.0.1:5000');
-// socket.on('connect', function() {
-//     socket.emit('init', {data: 'I\'m connected!'});
-// });
 
 var canvas = document.querySelector('canvas');
 
@@ -15,7 +10,7 @@ function simplifyArray(imageArr) {
      simpleArr = simpleArr.map(
          value => {
              if(value > 150){
-                 return 255;
+                 return 1;
              }else{
                  return 0;
              }
@@ -23,7 +18,6 @@ function simplifyArray(imageArr) {
          });
     return Array.from(simpleArr)
 }
-
 
 const drawingCanvas = new DrawingCanvas(canvas);
 
@@ -45,7 +39,6 @@ document.querySelector('#submit-button').addEventListener("click", function(e) {
             console.log('ajax request failed');
         }
     });
-    // socket.emit('preproc', {data: simplifyArray(imageData.data)});
 });
 
 document.querySelector('#clear-button').addEventListener("click", function(e) {

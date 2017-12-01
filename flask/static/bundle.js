@@ -80,12 +80,6 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// var socket = io.connect('http://127.0.0.1:5000');
-// socket.on('connect', function() {
-//     socket.emit('init', {data: 'I\'m connected!'});
-// });
-
-// var io = require('socket.io-client');
 var canvas = document.querySelector('canvas');
 
 function simplifyArray(imageArr) {
@@ -95,7 +89,7 @@ function simplifyArray(imageArr) {
     //Not normalizing values j
     simpleArr = simpleArr.map(function (value) {
         if (value > 150) {
-            return 255;
+            return 1;
         } else {
             return 0;
         }
@@ -123,7 +117,6 @@ document.querySelector('#submit-button').addEventListener("click", function (e) 
             console.log('ajax request failed');
         }
     });
-    // socket.emit('preproc', {data: simplifyArray(imageData.data)});
 });
 
 document.querySelector('#clear-button').addEventListener("click", function (e) {
