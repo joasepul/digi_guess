@@ -9,7 +9,6 @@ from flask import request, send_from_directory
 app = flask.Flask(__name__, static_folder='./static')
 app.config['SECRET_KEY'] = 'secret!'
 
-# @socketio.on('preproc')
 @app.route('/get_digit', methods=['POST'])
 def process_and_predict():
     print('recieved request')
