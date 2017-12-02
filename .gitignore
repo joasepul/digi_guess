@@ -1,3 +1,4 @@
 flask/static/node_modules
 frontend/node_modules
 flask/__pycache__
+.idea
