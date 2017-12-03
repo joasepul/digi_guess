@@ -24,14 +24,15 @@ def process_and_predict():
 
 
 @app.route('/')
+@app.route('/index.html')
 def index():
     """ Displays the index page accessible at '/'
     """
     return flask.render_template('index.html')
 
-@app.route('/index.css')
+@app.route('/css/creative.min.css')
 def stylesheet():
-    return send_from_directory('static', 'index.css')
+    return send_from_directory('static/css', 'creative.min.css')
 
 @app.route('/about.html')
 def aboutPage():
