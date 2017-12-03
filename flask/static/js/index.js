@@ -2,8 +2,9 @@ import DrawingCanvas from './drawing-canvas';
 import $ from 'jquery';
 import {simplifyArray} from './preprocess';
 
-var canvas = document.querySelector('canvas');
+const canvas = document.querySelector('canvas');
 const drawingCanvas = new DrawingCanvas(canvas);
+const ctx = canvas.getContext('2d');
 
 document.querySelector('#submit-button').addEventListener("click", function(e) {
     var imageData = simplifyArray(drawingCanvas.data());
@@ -16,8 +17,8 @@ document.querySelector('#submit-button').addEventListener("click", function(e) {
         dataType: "json",
         success: function(data) {
             console.log('success');
-            console.log(data);
-            document.getElementById('output').innerText = data[0]
+            drawingCanvas.clear();
+            drawingCanvas.writeDigit(data[0]);
         },
         error: function() {
             console.log('ajax request failed');

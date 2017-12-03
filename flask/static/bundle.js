@@ -84,6 +84,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var canvas = document.querySelector('canvas');
 var drawingCanvas = new _drawingCanvas2.default(canvas);
+var ctx = canvas.getContext('2d');
 
 document.querySelector('#submit-button').addEventListener("click", function (e) {
     var imageData = (0, _preprocess.simplifyArray)(drawingCanvas.data());
@@ -96,8 +97,8 @@ document.querySelector('#submit-button').addEventListener("click", function (e) 
         dataType: "json",
         success: function success(data) {
             console.log('success');
-            console.log(data);
-            document.getElementById('output').innerText = data[0];
+            drawingCanvas.clear();
+            drawingCanvas.writeDigit(data[0]);
         },
         error: function error() {
             console.log('ajax request failed');
@@ -135,7 +136,6 @@ function DrawingCanvas(element, options) {
         minWidth: 2,
         maxWidth: 2,
         minDistance: 1
-
     });
 }
 
@@ -146,6 +146,13 @@ DrawingCanvas.prototype.clear = function () {
 
 DrawingCanvas.prototype.data = function () {
     return this.ctx.getImageData(0, 0, this.ctx.canvas.width, this.ctx.canvas.height).data;
+};
+
+DrawingCanvas.prototype.writeDigit = function (digit) {
+    this.ctx.font = '2em sans-serif';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillText(digit, this.element.width / 2, this.element.height / 2);
 };
 
 exports.default = DrawingCanvas;
@@ -10558,9 +10565,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	// https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
 	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 			return jQuery;
-		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	}
 
