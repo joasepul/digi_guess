@@ -18,10 +18,17 @@ Our project was to create a website that allows user to write a number and it wi
 conda env create -f environment.yml
 ```
 
-## Usage
+## Usage for linux
 ```
 cd flask/
 export FLASK_APP=server.py
+flask run
+```
+
+## Usage for windows
+```
+cd flask/
+set FLASK_APP=server.py
 flask run
 ```
 
