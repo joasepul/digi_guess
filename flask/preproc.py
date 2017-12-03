@@ -5,16 +5,29 @@ import numpy as np
 
 def process_matrix(unprocessed):
     processed = np.array(unprocessed, dtype=np.uint8).reshape((100,100))
-    center_matrix(processed)
-    processed = scipy.misc.imresize(processed, (28,28), interp="nearest")
+    processed = center_matrix(processed)
+    processed = scipy.misc.imresize(processed, (28,28), interp="lanczos")
     processed = processed.reshape(1, 1, 28, 28).astype('float32')
     return processed
 
 
+def displayDigit(digit):
+    import matplotlib
+    import matplotlib.pyplot as plt
+    plt.imshow(digit, cmap = matplotlib.cm.binary)
+    plt.show()
+
+def floor_even(number):
+    if number % 2 != 0:
+        return number - 1
+    return number
+
+def ciel_even(number):
+    if number % 2 != 0:
+        return number + 1
+    return number
+
 def center_matrix(unprocessed):
-    # find min row, min col
-    # find max row, max col
-    # pad a lil
     return_matrix = np.zeros(unprocessed.shape, dtype=np.uint8)
     matrix_size_y = unprocessed.shape[0]
     matrix_size_x = unprocessed.shape[1]
@@ -37,16 +50,26 @@ def center_matrix(unprocessed):
                 if max_x < x_index:
                     max_x = x_index
 
-    print("min_x:{0} min_y:{1} max_x:{2} max_y:{3}".format(min_x, min_y, max_x, max_y))
 
-    x_ratio = (max_x - min_x) / matrix_size_x
-    y_ratio = (max_y - min_y) / matrix_size_y
-    print("x_ratio:{0} y_ratio{1}".format(x_ratio, y_ratio))
-    zoom_factor = 1 / (x_ratio if x_ratio > y_ratio else y_ratio)
+    min_x = floor_even(min_x)
+    min_y = floor_even(min_y)
+    max_x = ciel_even(max_x)
+    max_y = ciel_even(max_y)
+    x_diff = max_x - min_x
+    y_diff = max_y - min_y
+    x_center = (max_x + min_x) // 2
+    y_center = (max_y + min_y) // 2
+
+    if x_diff > y_diff:
+        min_y = max(y_center - x_diff // 2, 0)
+        max_y = min(y_center + x_diff // 2, 100)
+    else:
+        min_x = max(x_center - y_diff // 2, 0)
+        max_x = min(x_center + y_diff // 2, 100)
+
     digit_sub_matrix = unprocessed[min_y:max_y, min_x:max_x]
-    print(digit_sub_matrix.shape)
-    digit_sub_matrix = scipy.misc.imresize(digit_sub_matrix, size=zoom_factor)
-    np.set_printoptions(threshold=np.nan)
-    print(digit_sub_matrix)
-    #find center x and y 
+
+    digit_sub_matrix = scipy.misc.imresize(digit_sub_matrix, size=(100, 100), interp='lanczos')
+
+    return digit_sub_matrix
     # now center -> resize -> pad back up to 100

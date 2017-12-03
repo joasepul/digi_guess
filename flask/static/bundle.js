@@ -10565,9 +10565,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	// https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
 	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 			return jQuery;
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	}
 
@@ -10648,13 +10648,14 @@ function simplifyArray(imageArr) {
     var simpleArr = imageArr.filter(function (value, index) {
         return (index + 1) % 4 == 0;
     });
-    simpleArr = simpleArr.map(function (value) {
-        if (value > 150) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
+    //  simpleArr = simpleArr.map(
+    //      value => {
+    //          if(value > 150){
+    //              return 255;
+    //          }else{
+    //              return 0;
+    //          }
+    //      });
     return Array.from(simpleArr);
 }
 
