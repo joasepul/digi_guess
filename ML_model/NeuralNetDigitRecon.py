@@ -44,6 +44,8 @@ def larger_model():
     model = Sequential()
     model.add(Conv2D(30, (5, 5), input_shape=(1, 28, 28), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Conv2D(15, (3, 3,), activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Dropout(0.2))
     model.add(Flatten())
     model.add(Dense(128, activation='relu'))
@@ -69,9 +71,9 @@ single_model = larger_model()
 single_model.set_weights(weights)
 single_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 # fit the new model
-single_model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=1, batch_size=1)
+# single_model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=1, batch_size=1)
 # save the model to h5
 save_model(single_model, "cnn_digit_clf.h5")
 # Final evaluation of the model
-scores = single_model.evaluate(X_test, y_test, verbose=0)
+scores = single_model.evaluate(X_test, y_test, batch_size=1, verbose=0)
 print("Large CNN Error: %.2f%%" % (100-scores[1]*100))
