@@ -4,7 +4,7 @@ export function simplifyArray(imageArr) {
      simpleArr = simpleArr.map(
          value => {
              if(value > 150){
-                 return 1;
+                 return 255;
              }else{
                  return 0;
              }

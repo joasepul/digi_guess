@@ -1,4 +1,4 @@
-from preproc import processMatrix
+from preproc import process_matrix
 from model import predict
 import flask
 import json
@@ -13,25 +13,26 @@ app.config['SECRET_KEY'] = 'secret!'
 def process_and_predict():
     print('recieved request')
     got = json.loads(request.data)
-    processedMatrix = processMatrix(got)
+    processed_matrix = process_matrix(got)
     #Here is where we will call the model to predict.
     #predictedLabel = sgd_clf.predict(processedMatrix.reshape(1,-1))
-    predictedLabel = predict(processedMatrix)
-    print("The model predicted: {}".format(predictedLabel))
-    return str(predictedLabel)
+    predicted_label = predict(processed_matrix)
+    print("The model predicted: {}".format(predicted_label))
+    return str(predicted_label)
     #We will return whatever label the model predicts, or the answer to
     #the arithmetic expression
 
 
 @app.route('/')
+@app.route('/index.html')
 def index():
     """ Displays the index page accessible at '/'
     """
     return flask.render_template('index.html')
 
-@app.route('/index.css')
+@app.route('/css/creative.min.css')
 def stylesheet():
-    return send_from_directory('static', 'index.css')
+    return send_from_directory('static/css', 'creative.min.css')
 
 @app.route('/about.html')
 def aboutPage():
