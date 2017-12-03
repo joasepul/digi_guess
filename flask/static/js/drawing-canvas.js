@@ -5,10 +5,9 @@ function DrawingCanvas(element, options) {
     this.ctx = element.getContext('2d');
     this.opts = options || {};
     this.signaturePad = new SignaturePad(element, {
-        dotSize: 1,
-        minWidth: 2,
-        maxWidth: 2,
-        minDistance: 1
+        minWidth: 3,
+        maxWidth: 3,
+        minDistance: 5
     });
 }
 

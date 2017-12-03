@@ -5,10 +5,24 @@ import numpy as np
 
 def process_matrix(unprocessed):
     processed = np.array(unprocessed, dtype=np.uint8).reshape((100,100))
-    processed = center_matrix(processed)
+    #displayDigit(processed)
+    processed = center_matrix(processed, padding=10)
+    #displayDigit(processed)
     processed = scipy.misc.imresize(processed, (28,28), interp="lanczos")
+    #displayDigit(processed)
     processed = processed.reshape(1, 1, 28, 28).astype('float32')
     return processed
+
+def center_matrix(unprocessed, padding=0):
+    min_y, min_x, max_y, max_x = get_bounding_box(unprocessed,
+                                                  padding=padding)
+    digit_sub_matrix = unprocessed[min_y:max_y, min_x:max_x]
+    digit_sub_matrix = scipy.misc.imresize(digit_sub_matrix,
+                                           size=(100, 100),
+                                           interp='lanczos')
+
+    return digit_sub_matrix
+    # now center -> resize -> pad back up to 100
 
 
 def displayDigit(digit):
@@ -27,17 +41,13 @@ def ciel_even(number):
         return number + 1
     return number
 
-def center_matrix(unprocessed):
-    return_matrix = np.zeros(unprocessed.shape, dtype=np.uint8)
-    matrix_size_y = unprocessed.shape[0]
-    matrix_size_x = unprocessed.shape[1]
-
-    min_x = 100
-    min_y = 100
+def get_bounding_box(npMatrix, padding = 0):
+    min_x = npMatrix.shape[1]
+    min_y = npMatrix.shape[0]
     max_x = 0
     max_y = 0
-    zero_Row = np.zeros((100,), dtype=np.uint8)
-    for y_index, row in enumerate(unprocessed): #Y axis
+    zero_Row = np.zeros((100,), dtype=np.float32)
+    for y_index, row in enumerate(npMatrix): #Y axis
         if not np.array_equal(row, zero_Row):
             if min_y > y_index:
                 min_y = y_index
@@ -50,7 +60,6 @@ def center_matrix(unprocessed):
                 if max_x < x_index:
                     max_x = x_index
 
-
     min_x = floor_even(min_x)
     min_y = floor_even(min_y)
     max_x = ciel_even(max_x)
@@ -61,15 +70,15 @@ def center_matrix(unprocessed):
     y_center = (max_y + min_y) // 2
 
     if x_diff > y_diff:
-        min_y = max(y_center - x_diff // 2, 0)
-        max_y = min(y_center + x_diff // 2, 100)
+        min_y = y_center - x_diff // 2
+        max_y = y_center + x_diff // 2
     else:
-        min_x = max(x_center - y_diff // 2, 0)
-        max_x = min(x_center + y_diff // 2, 100)
+        min_x = x_center - y_diff // 2
+        max_x = x_center + y_diff // 2
 
-    digit_sub_matrix = unprocessed[min_y:max_y, min_x:max_x]
+    min_x = max(min_x - padding, 0)
+    min_y = max(min_y - padding, 0)
+    max_x = min(max_x + padding, 100)
+    max_y = min(max_y + padding, 100)
 
-    digit_sub_matrix = scipy.misc.imresize(digit_sub_matrix, size=(100, 100), interp='lanczos')
-
-    return digit_sub_matrix
-    # now center -> resize -> pad back up to 100
+    return min_y, min_x, max_y, max_x
