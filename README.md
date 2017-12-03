@@ -27,6 +27,7 @@ flask run
 
 Trello board:
 
-* Sprint 2:https://trello.com/b/hF8J4OEt
+* Sprint 1: https://trello.com/b/Yo3SfUAS
+* Sprint 2: https://trello.com/b/hF8J4OEt
 * Sprint 3: https://trello.com/b/JIAzX1nB
 * Sprint 4: https://trello.com/b/kmDtLWe2/sprint-4
