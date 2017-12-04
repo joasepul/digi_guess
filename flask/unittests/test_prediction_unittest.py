@@ -1,10 +1,10 @@
 import unittest
 import sys
 sys.path.append('..')
-from model import predict
+from ML_model import model
 import pickle
 
-class Test_digit_centering(unittest.TestCase):
+class Test_prediction(unittest.TestCase):
 
     def setUp(self):
         with open("processed_user_data.pickle", "rb") as f:
@@ -16,8 +16,11 @@ class Test_digit_centering(unittest.TestCase):
     def test_user_input_processing(self):
 
         for index, preproc_data in enumerate(self.preproc_data_list):
-            predicted_label = predict(preproc_data)
-            self.assertEqual(predicted_label, self.label_list[index])
+            true_label = self.label_list[index]
+            predicted_label = model.predict(preproc_data)
+            print("prediction:{0} true_label:{1}".format(predicted_label,
+                                                        true_label))
+            self.assertEqual(predicted_label, true_label)
 
 
 
