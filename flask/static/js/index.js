@@ -19,7 +19,6 @@ document.querySelector('#submit-button').addEventListener("click", function(e) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(data) {
-            console.log('success');
             drawingCanvas.clear();
             drawingCanvas.writeDigit(data[0]);
             drawingCanvas.isDisplayingResult = true;

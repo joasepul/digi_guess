@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --display-error-details",
     "watch": "webpack --watch",
-    "test": "babel-node spec/run.js"
+    "test": "babel-node js/spec/run.js"
   },
   "author": "",
   "license": "ISC",
