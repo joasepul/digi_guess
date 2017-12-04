@@ -29,4 +29,8 @@ DrawingCanvas.prototype.writeDigit = function(digit) {
     this.ctx.fillText(digit, this.element.width/2, this.element.height/2);
 }
 
+DrawingCanvas.prototype.isEmpty = function() {
+    return this.signaturePad.isEmpty();
+}
+
 export default DrawingCanvas;
