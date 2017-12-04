@@ -23,7 +23,7 @@ DrawingCanvas.prototype.data = function () {
 }
 
 DrawingCanvas.prototype.writeDigit = function(digit) {
-    this.ctx.font = '2em sans-serif';
+    this.ctx.font = '5em sans-serif';
     this.ctx.textAlign = 'center';
     this.ctx.textBaseline = 'middle';
     this.ctx.fillText(digit, this.element.width/2, this.element.height/2);
