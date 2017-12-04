@@ -20,4 +20,20 @@ describe("simplifyArray", function() {
         simplifiedArray = [200, 0, 21];
         expect(simplifyArray(testArray)).toEqual(simplifiedArray);
     });
+
+    it("doesn't accept arrays whose lengths aren't divisible by 4", function() {
+        let testArray;
+
+        testArray = [];
+        expect(function(){simplifyArray(testArray);}).not.toThrow();
+
+        testArray = [0, 0, 0, 0];
+        expect(function(){simplifyArray(testArray);}).not.toThrow();
+
+        testArray = [0, 0];
+        expect(function(){simplifyArray(testArray);}).toThrow();
+
+        testArray = [0, 0, 0, 0, 0, 0, 0, 0];
+        expect(function(){simplifyArray(testArray);}).not.toThrow();
+    })
 });
