@@ -7,7 +7,7 @@ const drawingCanvas = new DrawingCanvas(canvas);
 const ctx = canvas.getContext('2d');
 
 document.querySelector('#submit-button').addEventListener("click", function(e) {
-    if (drawingCanvas.isDisplayingResult) {
+    if (drawingCanvas.isDisplayingResult || drawingCanvas.isEmpty()) {
         return;
     }
     var imageData = simplifyArray(drawingCanvas.data());
