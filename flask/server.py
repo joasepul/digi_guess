@@ -14,13 +14,13 @@ def process_and_predict():
     print('recieved request')
     got = json.loads(flask.request.data)
     processed_matrix = process_matrix(got)
-    #Here is where we will call the model to predict.
-    #predictedLabel = sgd_clf.predict(processedMatrix.reshape(1,-1))
+    # Here is where we will call the model to predict.
+    # predictedLabel = sgd_clf.predict(processedMatrix.reshape(1,-1))
     predicted_label = predict(processed_matrix)
     print("The model predicted: {}".format(predicted_label))
     return str(predicted_label)
-    #We will return whatever label the model predicts, or the answer to
-    #the arithmetic expression
+    # We will return whatever label the model predicts, or the answer to
+    # the arithmetic expression
 
 
 @app.route('/')
@@ -47,4 +47,4 @@ def script():
 
 
 if __name__ == '__main__':
-    app.debug=True
+    app.debug = True
