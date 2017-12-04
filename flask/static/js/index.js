@@ -11,7 +11,6 @@ document.querySelector('#submit-button').addEventListener("click", function(e) {
         return;
     }
     var imageData = simplifyArray(drawingCanvas.data());
-    console.log(imageData);
     $.ajax({
         url: '/get_digit',
         type: 'POST',
