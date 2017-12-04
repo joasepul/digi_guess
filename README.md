@@ -7,7 +7,7 @@ Digi Netters:
 * Harland Duman
 * Jose Sepulveda
 * Megan Sharp
-* Shobikha Saran
+* Shobikha Saravanan
 
 ## Why?
 
