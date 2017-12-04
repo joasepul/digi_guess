@@ -10583,9 +10583,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	// https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
 	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 			return jQuery;
-		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	}
 
@@ -10663,10 +10663,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.simplifyArray = simplifyArray;
 function simplifyArray(imageArr) {
+    if (imageArr.length % 4 !== 0) {
+        throw new PreprocessingException('invalid image data array length');
+    }
     var simpleArr = imageArr.filter(function (value, index) {
         return (index + 1) % 4 == 0;
     });
     return Array.from(simpleArr);
+}
+
+function PreprocessingException(message) {
+    this.message = message;
+    this.name = 'PreprocessingException';
 }
 
 /***/ })
