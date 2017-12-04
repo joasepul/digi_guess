@@ -7,6 +7,9 @@ const drawingCanvas = new DrawingCanvas(canvas);
 const ctx = canvas.getContext('2d');
 
 document.querySelector('#submit-button').addEventListener("click", function(e) {
+    if (drawingCanvas.isDisplayingResult) {
+        return;
+    }
     var imageData = simplifyArray(drawingCanvas.data());
     console.log(imageData);
     $.ajax({
@@ -19,6 +22,7 @@ document.querySelector('#submit-button').addEventListener("click", function(e) {
             console.log('success');
             drawingCanvas.clear();
             drawingCanvas.writeDigit(data[0]);
+            drawingCanvas.isDisplayingResult = true;
         },
         error: function() {
             console.log('ajax request failed');

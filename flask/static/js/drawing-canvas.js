@@ -9,10 +9,12 @@ function DrawingCanvas(element, options) {
         maxWidth: 3,
         minDistance: 5
     });
+    this.isDisplayingResult = false;
 }
 
 DrawingCanvas.prototype.clear = function () {
     this.signaturePad.clear();
+    this.isDisplayingResult = false;
     return this;
 }
 

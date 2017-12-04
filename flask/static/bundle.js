@@ -87,6 +87,9 @@ var drawingCanvas = new _drawingCanvas2.default(canvas);
 var ctx = canvas.getContext('2d');
 
 document.querySelector('#submit-button').addEventListener("click", function (e) {
+    if (drawingCanvas.isDisplayingResult) {
+        return;
+    }
     var imageData = (0, _preprocess.simplifyArray)(drawingCanvas.data());
     console.log(imageData);
     _jquery2.default.ajax({
@@ -99,6 +102,7 @@ document.querySelector('#submit-button').addEventListener("click", function (e) 
             console.log('success');
             drawingCanvas.clear();
             drawingCanvas.writeDigit(data[0]);
+            drawingCanvas.isDisplayingResult = true;
         },
         error: function error() {
             console.log('ajax request failed');
@@ -136,10 +140,12 @@ function DrawingCanvas(element, options) {
         maxWidth: 3,
         minDistance: 5
     });
+    this.isDisplayingResult = false;
 }
 
 DrawingCanvas.prototype.clear = function () {
     this.signaturePad.clear();
+    this.isDisplayingResult = false;
     return this;
 };
 
@@ -10564,9 +10570,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	// https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
 	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 			return jQuery;
-		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	}
 
