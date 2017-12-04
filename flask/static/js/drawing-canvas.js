@@ -10,16 +10,26 @@ function DrawingCanvas(element, options) {
         minDistance: 5
     });
     this.isDisplayingResult = false;
+    this.enable();
 }
 
 DrawingCanvas.prototype.clear = function () {
     this.signaturePad.clear();
     this.isDisplayingResult = false;
+    this.enable();
     return this;
 }
 
 DrawingCanvas.prototype.data = function () {
     return this.ctx.getImageData(0, 0, this.ctx.canvas.width, this.ctx.canvas.height).data;
+}
+
+DrawingCanvas.prototype.disable = function () {
+    this.signaturePad.penColor = "rgba(0,0,0,0)";
+}
+
+DrawingCanvas.prototype.enable = function () {
+    this.signaturePad.penColor = "black";
 }
 
 DrawingCanvas.prototype.writeDigit = function(digit) {

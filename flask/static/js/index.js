@@ -21,6 +21,7 @@ document.querySelector('#submit-button').addEventListener("click", function(e) {
             drawingCanvas.clear();
             drawingCanvas.writeDigit(data);
             drawingCanvas.isDisplayingResult = true;
+            drawingCanvas.disable();
         },
         error: function() {
             console.log('ajax request failed');
