@@ -4,14 +4,15 @@ import numpy as np
 
 
 def process_matrix(unprocessed):
-    processed = np.array(unprocessed, dtype=np.uint8).reshape((100,100))
-    #displayDigit(processed)
+    processed = np.array(unprocessed, dtype=np.uint8).reshape((100, 100))
+    # display_digit(processed)
     processed = center_matrix(processed, padding=10)
-    #displayDigit(processed)
+    # display_digit(processed)
     processed = scipy.misc.imresize(processed, (28,28), interp="lanczos")
-    #displayDigit(processed)
+    # display_digit(processed)
     processed = processed.reshape(1, 1, 28, 28).astype('float32')
     return processed
+
 
 def center_matrix(unprocessed, padding=0):
     min_y, min_x, max_y, max_x = get_bounding_box(unprocessed,
@@ -25,35 +26,38 @@ def center_matrix(unprocessed, padding=0):
     # now center -> resize -> pad back up to 100
 
 
-def displayDigit(digit):
+def display_digit(digit):
     import matplotlib
     import matplotlib.pyplot as plt
-    plt.imshow(digit, cmap = matplotlib.cm.binary)
+    plt.imshow(digit, cmap=matplotlib.cm.binary)
     plt.show()
+
 
 def floor_even(number):
     if number % 2 != 0:
         return number - 1
     return number
 
+
 def ciel_even(number):
     if number % 2 != 0:
         return number + 1
     return number
 
-def get_bounding_box(npMatrix, padding = 0):
-    min_x = npMatrix.shape[1]
-    min_y = npMatrix.shape[0]
+
+def get_bounding_box(np_matrix, padding=0):
+    min_x = np_matrix.shape[1]
+    min_y = np_matrix.shape[0]
     max_x = 0
     max_y = 0
-    zero_Row = np.zeros((100,), dtype=np.float32)
-    for y_index, row in enumerate(npMatrix): #Y axis
-        if not np.array_equal(row, zero_Row):
+    zero_row = np.zeros((100,), dtype=np.float32)
+    for y_index, row in enumerate(np_matrix):  # Y axis
+        if not np.array_equal(row, zero_row):
             if min_y > y_index:
                 min_y = y_index
             if max_y < y_index:
                 max_y = y_index
-        for x_index, elem in enumerate(row): #X axis
+        for x_index, elem in enumerate(row):  # X axis
             if elem != 0:
                 if min_x > x_index:
                     min_x = x_index
