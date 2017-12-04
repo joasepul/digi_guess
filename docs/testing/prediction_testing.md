@@ -1,6 +1,6 @@
-Model Prediction Module
-Module 'model' in ML_model package
-Expected behavior:
+# Model Prediction Module
+## Module 'model' in ML_model package
+### Expected behavior:
 	Usage: 
 		from ML_model import mode)
 		predicted_label = model.predict(processed_matrix)
@@ -10,7 +10,7 @@ Expected behavior:
 	Output:
 		A digit from 0 to 9 representing the lable the trained
 		model predicted.
-Method of testing:
+### Method of testing:
 	We used the python module unittest which contains a list of 10 processed
 	matrices. We predict each one, and assert the equality between the 
 	predicted label and true label.
