@@ -1,10 +1,12 @@
 import scipy.misc
 import scipy.ndimage
+import skimage
 import numpy as np
+import pickle
 
 
 def process_matrix(unprocessed):
-    processed = np.array(unprocessed, dtype=np.uint8).reshape((100, 100))
+    processed = np.array(unprocessed).reshape((100, 100))
     # display_digit(processed)
     processed = center_matrix(processed, padding=10)
     # display_digit(processed)
@@ -26,10 +28,12 @@ def center_matrix(unprocessed, padding=0):
     # now center -> resize -> pad back up to 100
 
 
-def display_digit(digit):
+def display_digit(digit, title = ""):
     import matplotlib
     import matplotlib.pyplot as plt
-    plt.imshow(digit, cmap=matplotlib.cm.binary)
+    plt.title(title)
+    plt.imshow(digit,
+               cmap=matplotlib.cm.binary)
     plt.show()
 
 

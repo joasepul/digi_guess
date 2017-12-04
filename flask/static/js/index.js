@@ -19,7 +19,7 @@ document.querySelector('#submit-button').addEventListener("click", function(e) {
         dataType: "json",
         success: function(data) {
             drawingCanvas.clear();
-            drawingCanvas.writeDigit(data[0]);
+            drawingCanvas.writeDigit(data);
             drawingCanvas.isDisplayingResult = true;
         },
         error: function() {
